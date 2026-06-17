@@ -1,0 +1,145 @@
+// Original Array
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Array Methods Demo</title>
+</head>
+<body>
+
+<script>
+
+document.write("<h2>Array Methods Demo</h2>");
+
+// Original Array
+let courses = ["Java", "Python", "JavaScript", "C++", "React"];
+
+document.write("<b>Original Array:</b><br>");
+document.write(courses + "<hr>");
+
+// push()
+courses.push("NodeJS");
+document.write("<b>After push('NodeJS'):</b><br>");
+document.write(courses + "<hr>");
+
+// pop()
+let removedLast = courses.pop();
+document.write("<b>After pop():</b><br>");
+document.write("Removed: " + removedLast + "<br>");
+document.write(courses + "<hr>");
+
+// unshift()
+courses.unshift("HTML");
+document.write("<b>After unshift('HTML'):</b><br>");
+document.write(courses + "<hr>");
+
+// shift()
+let removedFirst = courses.shift();
+document.write("<b>After shift():</b><br>");
+document.write("Removed: " + removedFirst + "<br>");
+document.write(courses + "<hr>");
+
+// includes()
+document.write("<b>includes('Python'):</b><br>");
+document.write(courses.includes("Python") + "<hr>");
+
+// indexOf()
+document.write("<b>indexOf('JavaScript'):</b><br>");
+document.write(courses.indexOf("JavaScript") + "<hr>");
+
+// lastIndexOf()
+let langs = ["Java", "Python", "Java", "JavaScript"];
+document.write("<b>lastIndexOf('Java'):</b><br>");
+document.write(langs.lastIndexOf("Java") + "<hr>");
+
+// slice()
+let subset = courses.slice(1, 4);
+document.write("<b>slice(1,4):</b><br>");
+document.write(subset + "<hr>");
+
+// splice() Remove
+let temp = [...courses];
+temp.splice(2, 1);
+document.write("<b>splice(2,1):</b><br>");
+document.write(temp + "<hr>");
+
+// splice() Insert
+temp = [...courses];
+temp.splice(2, 0, "Angular");
+document.write("<b>splice(2,0,'Angular'):</b><br>");
+document.write(temp + "<hr>");
+
+// concat()
+let frontend = ["HTML", "CSS"];
+let allCourses = frontend.concat(courses);
+document.write("<b>concat():</b><br>");
+document.write(allCourses + "<hr>");
+
+// join()
+document.write("<b>join(' | '):</b><br>");
+document.write(courses.join(" | ") + "<hr>");
+
+// reverse()
+temp = [...courses];
+temp.reverse();
+document.write("<b>reverse():</b><br>");
+document.write(temp + "<hr>");
+
+// sort()
+temp = [...courses];
+temp.sort();
+document.write("<b>sort():</b><br>");
+document.write(temp + "<hr>");
+
+// forEach()
+document.write("<b>forEach():</b><br>");
+courses.forEach(function(course) {
+    document.write(course + "<br>");
+});
+document.write("<hr>");
+
+// map()
+let upperCourses = courses.map(course => course.toUpperCase());
+document.write("<b>map() - Uppercase:</b><br>");
+document.write(upperCourses + "<hr>");
+
+// filter()
+let longNames = courses.filter(course => course.length > 4);
+document.write("<b>filter(length > 4):</b><br>");
+document.write(longNames + "<hr>");
+
+// find()
+let found = courses.find(course => course.startsWith("P"));
+document.write("<b>find(startsWith('P')):</b><br>");
+document.write(found + "<hr>");
+
+// findIndex()
+let foundIndex = courses.findIndex(course => course.startsWith("P"));
+document.write("<b>findIndex(startsWith('P')):</b><br>");
+document.write(foundIndex + "<hr>");
+
+// some()
+let hasReact = courses.some(course => course === "React");
+document.write("<b>some(course === 'React'):</b><br>");
+document.write(hasReact + "<hr>");
+
+// every()
+let allStrings = courses.every(course => typeof course === "string");
+document.write("<b>every(is string):</b><br>");
+document.write(allStrings + "<hr>");
+
+// reduce()
+let totalChars = courses.reduce(
+    (sum, course) => sum + course.length,
+    0
+);
+document.write("<b>reduce() - Total Characters:</b><br>");
+document.write(totalChars + "<hr>");
+
+// toString()
+document.write("<b>toString():</b><br>");
+document.write(courses.toString() + "<hr>");
+
+</script>
+
+</body>
+</html>
