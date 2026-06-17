@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Storage Demo</title>
+
+    <script>
+
+        function demoLocalStorage()
+        {
+            document.write("<h2>Local Storage Demo</h2>");
+
+            // 1. Store data
+            localStorage.setItem("company", "ScanIT");
+            localStorage.setItem("city", "Mumbai");
+            localStorage.setItem("course", "JavaScript");
+
+            document.write("<b>Data Stored</b><br><br>");
+
+            // 2. Retrieve data
+            document.write("Company : "
+                           + localStorage.getItem("company")
+                           + "<br>");
+
+            document.write("City : "
+                           + localStorage.getItem("city")
+                           + "<br>");
+
+            // 3. Length property
+            document.write("<br>Total Items : "
+                           + localStorage.length
+                           + "<br><br>");
+
+            // 4. key() method
+            document.write("<b>Keys Stored :</b><br>");
+
+            for(let i = 0; i < localStorage.length; i++)
+            {
+                document.write(
+                    localStorage.key(i) + "<br>"
+                );
+            }
+
+            // 5. removeItem()
+            localStorage.removeItem("city");
+
+            document.write("<br><b>After removing city</b><br>");
+            document.write("Items Count : "
+                           + localStorage.length
+                           + "<br>");
+
+            // Display remaining items
+            for(let i = 0; i < localStorage.length; i++)
+            {
+                let key = localStorage.key(i);
+
+                document.write(
+                    key + " = "
+                    + localStorage.getItem(key)
+                    + "<br>"
+                );
+            }
+
+            // 6. clear()
+            localStorage.clear();
+
+            document.write("<br><b>After clear()</b><br>");
+            document.write("Items Count : "
+                           + localStorage.length);
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <button onclick="demoLocalStorage()">
+        Run Demo
+    </button>
+
+</body>
+</html>

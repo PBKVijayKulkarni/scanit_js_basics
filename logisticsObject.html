@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logistics Shipment Details</title>
+</head>
+<body>
+
+<h2>Shipment Information</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Shipment ID</th>
+            <th>Customer Name</th>
+            <th>Shipment Date</th>
+            <th>Rate</th>
+            <th>Quantity</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody id="shipmentTable">
+    </tbody>
+</table>
+
+<script>
+
+    // Array of Shipment Objects
+    let shipments = [
+        {
+            shipment_id: 101,
+            customer_name: "ABC Traders",
+            shipment_date: "15-Jun-2026",
+            rate: 250,
+            qty: 10,
+            value: function() {
+                return this.rate * this.qty;
+            }
+        },
+        {
+            shipment_id: 102,
+            customer_name: "XYZ Industries",
+            shipment_date: "16-Jun-2026",
+            rate: 180,
+            qty: 15,
+            value: function() {
+                return this.rate * this.qty;
+            }
+        },
+        {
+            shipment_id: 103,
+            customer_name: "PQR Exports",
+            shipment_date: "17-Jun-2026",
+            rate: 300,
+            qty: 8,
+            value: function() {
+                return this.rate * this.qty;
+            }
+        }
+    ];
+
+    let tableBody = document.getElementById("shipmentTable");
+
+    for(let shipment of shipments)
+    {
+        let row = "<tr>" +
+                  "<td>" + shipment.shipment_id + "</td>" +
+                  "<td>" + shipment.customer_name + "</td>" +
+                  "<td>" + shipment.shipment_date + "</td>" +
+                  "<td>" + shipment.rate + "</td>" +
+                  "<td>" + shipment.qty + "</td>" +
+                  "<td>" + shipment.value() + "</td>" +
+                  "</tr>";
+
+        tableBody.innerHTML += row;
+    }
+
+</script>
+
+</body>
+</html>

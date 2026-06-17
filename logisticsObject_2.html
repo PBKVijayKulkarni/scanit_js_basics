@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logistics Constructor Example</title>
+</head>
+<body>
+
+<h2>Shipment Details</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Shipment ID</th>
+        <th>Customer Name</th>
+        <th>Shipment Date</th>
+        <th>Rate</th>
+        <th>Quantity</th>
+        <th>Value</th>
+    </tr>
+    <tbody id="tblData">
+    </tbody>
+</table>
+
+<script>
+
+    // Constructor Function
+    function Logistics(shipment_id, customer_name,
+                       shipment_date, rate, qty)
+    {
+        this.shipment_id = shipment_id;
+        this.customer_name = customer_name;
+        this.shipment_date = shipment_date;
+        this.rate = rate;
+        this.qty = qty;
+
+        //function getValue()
+        this.getValue = function()
+        {
+            return this.rate * this.qty;
+        };
+    }
+
+    // Array of Logistics Objects
+    let shipments = [
+        new Logistics(101, "ABC Traders",
+                      "15-Jun-2026", 250, 10),
+
+        new Logistics(102, "XYZ Industries",
+                      "16-Jun-2026", 180, 15),
+
+        new Logistics(103, "PQR Exports",
+                      "17-Jun-2026", 300, 8),
+
+        new Logistics(104, "Global Logistics",
+                      "18-Jun-2026", 220, 12),
+
+        new Logistics(105, "Sunrise Retail",
+                      "19-Jun-2026", 150, 20)
+    ];
+
+    let output = "";
+
+    for(let shipment of shipments)
+    {
+        output += "<tr>";
+        output += "<td>" + shipment.shipment_id + "</td>";
+        output += "<td>" + shipment.customer_name + "</td>";
+        output += "<td>" + shipment.shipment_date + "</td>";
+        output += "<td>" + shipment.rate + "</td>";
+        output += "<td>" + shipment.qty + "</td>";
+        output += "<td>" + shipment.getValue() + "</td>";
+        output += "</tr>";
+    }
+
+    document.getElementById("tblData").innerHTML = output;
+
+</script>
+
+</body>
+</html>

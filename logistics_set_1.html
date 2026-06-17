@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set Demo</title>
+</head>
+<body>
+
+<script>
+
+document.write("<h2>Logistics - Set Demo</h2>");
+
+let deliveryLocations = new Set();
+
+// add()
+deliveryLocations.add("Mumbai");
+deliveryLocations.add("Delhi");
+deliveryLocations.add("Pune");
+deliveryLocations.add("Chennai");
+
+// Duplicate ignored
+deliveryLocations.add("Mumbai");
+
+document.write("Number of Locations : "
+               + deliveryLocations.size + "<br><br>");
+
+// has()
+document.write("Contains Pune ? "
+               + deliveryLocations.has("Pune")
+               + "<br>");
+
+document.write("Contains Nagpur ? "
+               + deliveryLocations.has("Nagpur")
+               + "<br><br>");
+
+// values()
+document.write("<b>Locations using values()</b><br>");
+
+for(let city of deliveryLocations.values())
+{
+    document.write(city + "<br>");
+}
+
+document.write("<br>");
+
+// keys()
+document.write("<b>Locations using keys()</b><br>");
+
+for(let city of deliveryLocations.keys())
+{
+    document.write(city + "<br>");
+}
+
+document.write("<br>");
+
+// entries()
+document.write("<b>Locations using entries()</b><br>");
+
+for(let item of deliveryLocations.entries())
+{
+    document.write(item[0] + " , "
+                  + item[1] + "<br>");
+}
+
+document.write("<br>");
+
+// forEach()
+document.write("<b>Using forEach()</b><br>");
+
+deliveryLocations.forEach(
+    function(city)
+    {
+        document.write(city + "<br>");
+    }
+);
+
+// delete()
+deliveryLocations.delete("Delhi");
+
+document.write("<br>");
+document.write("After deleting Delhi<br>");
+document.write("Size = "
+               + deliveryLocations.size
+               + "<br><br>");
+
+// clear()
+deliveryLocations.clear();
+
+document.write("After clear()<br>");
+document.write("Size = "
+               + deliveryLocations.size);
+
+</script>
+
+</body>
+</html>

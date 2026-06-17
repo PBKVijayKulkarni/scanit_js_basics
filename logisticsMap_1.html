@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Demo</title>
+</head>
+<body>
+
+<script>
+
+document.write("<h2>Logistics - Map Demo</h2>");
+
+let shipments = new Map();
+
+// set()
+shipments.set(101, "Mumbai");
+shipments.set(102, "Delhi");
+shipments.set(103, "Pune");
+shipments.set(104, "Chennai");
+
+document.write("Total Shipments : "
+               + shipments.size
+               + "<br><br>");
+
+// get()
+document.write("Shipment 102 Destination : "
+               + shipments.get(102)
+               + "<br><br>");
+
+// has()
+document.write("Contains Shipment 103 ? "
+               + shipments.has(103)
+               + "<br>");
+
+document.write("Contains Shipment 999 ? "
+               + shipments.has(999)
+               + "<br><br>");
+
+// keys()
+document.write("<b>Shipment IDs</b><br>");
+
+for(let id of shipments.keys())
+{
+    document.write(id + "<br>");
+}
+
+document.write("<br>");
+
+// values()
+document.write("<b>Destinations</b><br>");
+
+for(let city of shipments.values())
+{
+    document.write(city + "<br>");
+}
+
+document.write("<br>");
+
+// entries()
+document.write("<b>Shipment Details</b><br>");
+
+for(let [id, city] of shipments.entries())
+{
+    document.write(
+        "Shipment ID : "
+        + id
+        + " Destination : "
+        + city
+        + "<br>"
+    );
+}
+
+document.write("<br>");
+
+// forEach()
+document.write("<b>Using forEach()</b><br>");
+
+shipments.forEach(
+    function(city, id)
+    {
+        document.write(
+            id + " --> "
+            + city
+            + "<br>"
+        );
+    }
+);
+
+// delete()
+shipments.delete(102);
+
+document.write("<br>");
+document.write("After deleting Shipment 102<br>");
+document.write("Size = "
+               + shipments.size
+               + "<br><br>");
+
+// clear()
+shipments.clear();
+
+document.write("After clear()<br>");
+document.write("Size = "
+               + shipments.size);
+
+</script>
+
+</body>
+</html>

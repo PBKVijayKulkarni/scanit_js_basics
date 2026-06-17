@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookie Demo</title>
+
+    <script>
+
+        // Create a cookie
+        function createCookie(name, value, days)
+        {
+            let expiryDate = new Date();
+
+            expiryDate.setDate(expiryDate.getDate() + days);
+
+            document.cookie =
+                name + "=" + value +
+                ";expires=" + expiryDate.toUTCString() +
+                ";path=/";
+
+            document.write("<br>Cookie Created");
+        }
+
+        // Display all cookies
+        function displayAllCookies()
+        {
+            document.write("<br><br>All Cookies : ");
+            document.write(document.cookie);
+        }
+
+        // Get a specific cookie value
+        function getCookie(cookieName)
+        {
+            let cookies = document.cookie.split(";");
+
+            for(let cookie of cookies)
+            {
+                let parts = cookie.trim().split("=");
+
+                if(parts[0] === cookieName)
+                {
+                    return parts[1];
+                }
+            }
+
+            return "Cookie Not Found";
+        }
+
+        // Update a cookie
+        function updateCookie(name, value, days)
+        {
+            createCookie(name, value, days);
+            document.write("<br>Cookie Updated");
+        }
+
+        // Delete a cookie
+        function deleteCookie(name)
+        {
+            document.cookie =
+                name +
+                "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+
+            document.write("<br>Cookie Deleted");
+        }
+
+        function demo()
+        {
+            // Create Cookies
+            createCookie("company","ScanIT",7);
+            createCookie("city","Pune",7);
+
+            displayAllCookies();
+
+            // Read Specific Cookie
+            document.write("<br><br>Company = "
+                           + getCookie("company"));
+
+            // Update Cookie
+            updateCookie("company","ShipCo",7);
+
+            document.write("<br>Updated Company = "
+                           + getCookie("company"));
+
+            // Delete Cookie
+            deleteCookie("city");
+
+            document.write("<br><br>After deleting city cookie");
+            displayAllCookies();
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="demo()">
+        Cookie Demo
+    </button>
+</body>
+</html>

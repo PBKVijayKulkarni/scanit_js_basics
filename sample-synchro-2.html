@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Synchronous JavaScript Example</title>
+
+    <script>
+        function receiveOrder() {
+            document.write("1. Order Received <br>");
+        }
+
+        function packGoods() {
+            document.write("2. Goods Packed <br>");
+        }
+
+        function generateInvoice() {
+            document.write("3. Invoice Generated <br>");
+        }
+
+        function dispatchShipment() {
+            document.write("4. Shipment Dispatched <br>");
+        }
+
+        function processShipment() {
+            document.write("<h3>Shipment Processing Started</h3>");
+
+            receiveOrder();
+            packGoods();
+            generateInvoice();
+            dispatchShipment();
+
+            document.write("<h3>Shipment Processing Completed</h3>");
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="processShipment()">
+        Process Shipment
+    </button>
+</body>
+</html>
