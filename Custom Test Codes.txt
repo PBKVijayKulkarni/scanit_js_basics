@@ -1,0 +1,46 @@
+1. Drop down list
+let source =
+    document.getElementById("source").value;
+
+let destination =
+    document.getElementById("destination").value;
+
+return source!=destination;  //false;
+
+2. Sum of two numbers
+let num1 =
+    parseInt(document.getElementById("txtn1").value);
+
+let num2 =
+    parseInt(document.getElementById("txtn2").value);
+
+let expectedSum = num1 + num2;
+
+let outputText =
+    document.getElementById("output").innerText;
+
+return outputText === "Sum = " + expectedSum;  //return outputText !== "Sum = " + expectedSum;
+
+3. Radio button
+let actual =
+    document.getElementById("output")
+            .innerText;
+
+return actual.includes("10001")
+    && actual.includes("ABC Co")
+    && actual.includes("Normal");
+
+4. Logistics form
+let fromCity =
+    document.getElementById("fromcity").value;
+
+let toCity =
+    document.getElementById("tocity").value;
+
+let shipmentValue =
+    Number(document.getElementById("value").value);
+
+return fromCity !== toCity &&
+       shipmentValue >= 2500;   
+
+//return (fromCity === toCity) || (shipmentValue < 2500);
