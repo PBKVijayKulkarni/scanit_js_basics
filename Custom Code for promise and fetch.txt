@@ -1,0 +1,38 @@
+1. fetch() test
+
+let output =
+    document.getElementById("output").innerText;
+
+if (
+    output.trim() !== "" &&
+    output.includes("aut") &&
+    output.length > 5
+)
+{
+    return true;
+}
+
+return false;
+
+
+2. promise test
+let output =
+    document.getElementById("output").innerText;
+
+if (output === "")
+{
+    console.log("Promise is Pending");
+    return true;
+}
+else if (output === "Shipment Delivered")
+{
+    console.log("Promise Fulfilled");
+    return true;
+}
+else if (output === "Server Error")
+{
+    console.log("Promise Rejected");
+    return true;
+}
+
+return false;

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promise Demo</title>
+</head>
+<body>
+
+<button onclick="loadStatus()">Get Status</button>
+
+<div id="output"></div>
+
+<script>
+function loadStatus()
+{
+    let p = new Promise(function(resolve, reject)
+    {
+        setTimeout(function()
+        {
+            resolve("Shipment Delivered");
+        }, 2000);
+    });
+
+    p.then(function(result)
+    {
+        document.getElementById("output").innerText = result;
+    });
+}
+</script>
+
+</body>
+</html>
